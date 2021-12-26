@@ -20,7 +20,7 @@ create table user_table
     phone    varchar(15),
     password varchar(300),
     role     text,
-    address varchar(70)
+    address  varchar(70)
 );
 
 create unique index user_table_email_uindex
@@ -34,19 +34,16 @@ create table purchase_item_table
     product_id int
         constraint purchase_item_table_product_table_id_fk
             references product_table,
-    count      int default 1,
-    order_id   int not null
-        constraint purchase_item_table_order_table_id_fk
-            references order_table
+    count      int default 1
 );
 
 create table order_table
 (
-    id               serial
+    id      serial
         constraint order_table_pk
             primary key,
-    user_id          int
+    user_id int
         constraint order_table_user_table_id_fk
             references user_table,
-    comment          text
+    comment text
 );
