@@ -34,10 +34,7 @@ create table purchase_item_table
     product_id int
         constraint purchase_item_table_product_table_id_fk
             references product_table,
-    count      int default 1,
-    order_id   int not null
-        constraint purchase_item_table_order_table_id_fk
-            references order_table
+    count int default 1
 );
 
 create table order_table
